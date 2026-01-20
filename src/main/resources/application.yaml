@@ -1,0 +1,20 @@
+server:
+  port: 8761 # Cổng chuẩn quốc tế của Eureka
+
+spring:
+  application:
+    name: discovery-server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,prometheus"
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+eureka:
+  client:
+    register-with-eureka: false # Tôi là trùm (server), không cần đăng ký với ai
+    fetch-registry: false       # Tôi giữ danh bạ, không cần tải danh bạ về
